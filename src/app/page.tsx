@@ -75,7 +75,13 @@ export default function HomePage() {
 
       {/* Editorial */}
       <section className="max-w-7xl mx-auto w-full px-6 pb-16 grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div className="md:col-span-2 relative rounded-xl overflow-hidden bg-gradient-to-br from-slate-800 to-slate-950 aspect-[4/3] md:aspect-auto flex items-end p-8 text-white">
+        <div className="md:col-span-2 relative rounded-xl overflow-hidden aspect-[4/3] md:aspect-auto flex items-end p-8 text-white">
+          <img
+            src="/images/track.jpg"
+            alt="Born on the Track"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
           <div className="relative z-10">
             <h3 className="text-2xl font-bold">Born on the Track</h3>
             <p className="mt-2 max-w-sm text-sm text-stone-300">
@@ -89,10 +95,22 @@ export default function HomePage() {
         </div>
 
         <div className="grid grid-rows-2 gap-4">
-          <div className="relative rounded-xl overflow-hidden bg-gradient-to-br from-red-900 to-red-950 flex items-end p-5 text-white">
+          <div className="relative rounded-xl overflow-hidden flex items-end p-5 text-white">
+            <img
+              src="/images/shoes.jpg"
+              alt="Precision Craft"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
             <span className="relative z-10 text-sm font-semibold uppercase tracking-wide">Precision Craft</span>
           </div>
-          <div className="relative rounded-xl overflow-hidden bg-gradient-to-br from-teal-900 to-teal-950 flex items-end p-5 text-white">
+          <div className="relative rounded-xl overflow-hidden flex items-end p-5 text-white">
+            <img
+              src="/images/ready.jpg"
+              alt="Future Ready"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
             <span className="relative z-10 text-sm font-semibold uppercase tracking-wide">Future Ready</span>
           </div>
         </div>
