@@ -14,6 +14,7 @@ export default function RegisterPage() {
   const [showPassword, setShowPassword] = useState(false);
   const [agreed, setAgreed] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [success, setSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e: FormEvent) => {
@@ -28,10 +29,9 @@ export default function RegisterPage() {
     setLoading(true);
 
     try {
-      const result = await registerUser({ name, email, password });
-      localStorage.setItem('token', result.token);
-      localStorage.setItem('user', JSON.stringify(result.user));
-      router.push('/products');
+      await registerUser({ name, email, password });
+      setSuccess(true);
+      setTimeout(() => router.push('/login'), 1500);
     } catch (err) {
       const message = err instanceof ApiClientError ? err.message : 'Something went wrong';
       setError(message);
@@ -167,13 +167,18 @@ export default function RegisterPage() {
             </label>
 
             {error && <p className="text-sm text-red-600">{error}</p>}
+            {success && (
+              <p className="text-sm text-green-600 font-medium">
+                Account created successfully! Redirecting you to login...
+              </p>
+            )}
 
             <button
               type="submit"
-              disabled={loading}
+              disabled={loading || success}
               className="mt-2 w-full rounded-lg bg-zinc-900 py-3 text-sm font-semibold tracking-wide text-white uppercase hover:bg-zinc-800 transition-colors disabled:opacity-50"
             >
-              {loading ? 'Creating account...' : 'Create Account'}
+              {loading ? 'Creating account...' : success ? 'Success!' : 'Create Account'}
             </button>
           </form>
 
