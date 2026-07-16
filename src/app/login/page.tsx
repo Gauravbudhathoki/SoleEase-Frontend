@@ -24,7 +24,7 @@ export default function LoginPage() {
       const result = await loginUser({ email, password });
       localStorage.setItem('token', result.token);
       localStorage.setItem('user', JSON.stringify(result.user));
-      router.push('/products');
+      router.push('/');
     } catch (err) {
       const message = err instanceof ApiClientError ? err.message : 'Something went wrong';
       setError(message);

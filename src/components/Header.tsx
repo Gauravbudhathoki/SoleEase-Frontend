@@ -28,13 +28,13 @@ export default function Header() {
         </Link>
 
         <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-stone-700 whitespace-nowrap">
-          <Link href="/products?category=men" className="hover:text-stone-900 transition-colors">
+          <Link href="/men" className="hover:text-stone-900 transition-colors">
             Men
           </Link>
-          <Link href="/products?category=women" className="hover:text-stone-900 transition-colors">
+          <Link href="/women" className="hover:text-stone-900 transition-colors">
             Women
           </Link>
-          <Link href="/products" className="hover:text-stone-900 transition-colors">
+          <Link href="/brands" className="hover:text-stone-900 transition-colors">
             Brands
           </Link>
         </nav>
