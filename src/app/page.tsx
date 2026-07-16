@@ -22,8 +22,13 @@ export default function HomePage() {
       <Header />
 
       {/* Hero */}
-      <section className="relative h-[70vh] min-h-[420px] flex items-center justify-center text-center text-white overflow-hidden bg-gradient-to-br from-zinc-800 via-zinc-900 to-black">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_60%,rgba(255,140,60,0.15),transparent_60%)]" />
+      <section className="relative h-[70vh] min-h-[420px] flex items-center justify-center text-center text-white overflow-hidden">
+        <img
+          src="/images/homepage.jpg"
+          alt="SoleEase Summer Collection"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/40" />
         <div className="relative z-10 flex flex-col items-center px-6">
           <span className="text-xs tracking-[0.3em] uppercase text-amber-500 font-semibold mb-3">
             Limited Edition Drop
