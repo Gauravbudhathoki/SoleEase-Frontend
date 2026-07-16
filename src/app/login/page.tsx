@@ -42,9 +42,13 @@ export default function LoginPage() {
 
           <div />
 
-          {/* Shoe silhouette placeholder */}
-          <div className="relative z-10 flex-1 flex items-center justify-center">
-            <ShoeSilhouette />
+          {/* Shoe photo, cropped to hide baked-in text bands */}
+          <div className="relative z-10 flex-1 overflow-hidden">
+            <img
+              src="/images/screen.png"
+              alt="SoleEase performance sneaker"
+              className="absolute inset-0 w-full h-full object-cover scale-125 -translate-y-6"
+            />
           </div>
 
           <div className="relative z-10">
@@ -162,26 +166,6 @@ export default function LoginPage() {
         </div>
       </footer>
     </div>
-  );
-}
-
-function ShoeSilhouette() {
-  return (
-    <svg width="220" height="140" viewBox="0 0 220 140" fill="none" className="opacity-90">
-      <path
-        d="M10 100 Q20 70 50 65 Q70 62 85 50 Q100 38 125 40 Q150 42 165 55 Q185 60 200 75 Q210 85 205 100 Q200 110 185 110 L30 110 Q12 110 10 100Z"
-        fill="url(#shoeGradient)"
-        stroke="#52525b"
-        strokeWidth="1.5"
-      />
-      <path d="M85 50 Q95 65 110 70 Q130 75 150 68" stroke="#71717a" strokeWidth="1" fill="none" />
-      <defs>
-        <linearGradient id="shoeGradient" x1="0" y1="0" x2="220" y2="140">
-          <stop offset="0%" stopColor="#3f3f46" />
-          <stop offset="100%" stopColor="#18181b" />
-        </linearGradient>
-      </defs>
-    </svg>
   );
 }
 
