@@ -43,8 +43,13 @@ export default function RegisterPage() {
   return (
     <div className="min-h-screen flex flex-col md:flex-row">
       {/* Left panel */}
-      <div className="relative hidden md:flex md:w-1/2 flex-col justify-between bg-gradient-to-br from-zinc-900 via-zinc-950 to-black p-10 text-white overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(255,255,255,0.08),transparent_60%)]" />
+      <div className="relative hidden md:flex md:w-1/2 flex-col justify-between text-white overflow-hidden p-10">
+        <img
+          src="/images/register-hero.png"
+          alt="SoleEase performance sneaker"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/20" />
 
         <div />
 
