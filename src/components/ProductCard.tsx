@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Product } from '@/types';
+import { formatPrice } from '@/lib/format';
 
 export default function ProductCard({ product }: { product: Product }) {
   return (
@@ -28,7 +29,7 @@ export default function ProductCard({ product }: { product: Product }) {
         </h3>
         <div className="mt-1 flex items-center justify-between">
           <span className="text-lg font-semibold text-stone-900">
-            ${product.price.toFixed(2)}
+            {formatPrice(product.price)}
           </span>
           {product.stock === 0 && (
             <span className="text-xs text-red-600 font-medium">Out of stock</span>
