@@ -6,6 +6,7 @@ import { getProductById } from '@/lib/products';
 import { addToCart } from '@/lib/cart';
 import { ApiClientError } from '@/lib/api';
 import { Product } from '@/types';
+import { formatPrice } from '@/lib/format';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
@@ -153,7 +154,7 @@ export default function ProductDetailPage() {
             <div className="mt-6 flex items-center justify-between border-t border-stone-200 pt-6">
               <div>
                 <span className="text-2xl font-bold text-stone-900">
-                  ${product.price.toFixed(2)}
+                  {formatPrice(product.price)}
                 </span>
                 <p className="text-xs text-stone-400">Tax included</p>
               </div>
