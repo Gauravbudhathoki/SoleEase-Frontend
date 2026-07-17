@@ -4,12 +4,30 @@ import { useEffect, useState, FormEvent } from 'react';
 import { useRouter } from 'next/navigation';
 import { getCart } from '@/lib/cart';
 import { createOrder } from '@/lib/orders';
+import { initiateEsewaPayment } from '@/lib/payments';
 import { ApiClientError } from '@/lib/api';
 import { Cart } from '@/types';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
 const TAX_RATE = 0.08;
+
+const redirectToEsewa = (gatewayUrl: string, fields: Record<string, string>) => {
+  const form = document.createElement('form');
+  form.method = 'POST';
+  form.action = gatewayUrl;
+
+  Object.entries(fields).forEach(([key, value]) => {
+    const input = document.createElement('input');
+    input.type = 'hidden';
+    input.name = key;
+    input.value = value;
+    form.appendChild(input);
+  });
+
+  document.body.appendChild(form);
+  form.submit();
+};
 
 export default function CheckoutPage() {
   const router = useRouter();
@@ -26,7 +44,7 @@ export default function CheckoutPage() {
   const [state, setState] = useState('');
   const [postalCode, setPostalCode] = useState('');
   const [country, setCountry] = useState('Nepal');
-  const [paymentMethod, setPaymentMethod] = useState<'cod'>('cod');
+  const [paymentMethod, setPaymentMethod] = useState<'cod' | 'esewa'>('cod');
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -74,7 +92,13 @@ export default function CheckoutPage() {
         postalCode,
         country,
       });
-      router.push(`/orders/${order._id}`);
+
+      if (paymentMethod === 'esewa') {
+        const { gatewayUrl, fields } = await initiateEsewaPayment(order._id);
+        redirectToEsewa(gatewayUrl, fields);
+      } else {
+        router.push(`/orders/${order._id}`);
+      }
     } catch (err) {
       const msg = err instanceof ApiClientError ? err.message : 'Something went wrong';
       setError(msg);
@@ -215,8 +239,29 @@ export default function CheckoutPage() {
                   </p>
                 </div>
               </label>
+
+              <label className="flex items-start gap-3 border border-stone-300 rounded-lg p-4 cursor-pointer mt-3 hover:border-stone-500 transition-colors">
+                <input
+                  type="radio"
+                  checked={paymentMethod === 'esewa'}
+                  onChange={() => setPaymentMethod('esewa')}
+                  className="mt-1"
+                />
+                <div className="flex items-center gap-2">
+                  <span className="w-6 h-6 rounded-full bg-green-600 text-white text-xs font-bold flex items-center justify-center shrink-0">
+                    e
+                  </span>
+                  <div>
+                    <p className="font-medium text-stone-900 text-sm">eSewa Mobile Wallet</p>
+                    <p className="text-xs text-stone-500 mt-0.5">
+                      Instant digital payment via Nepal&apos;s leading gateway.
+                    </p>
+                  </div>
+                </div>
+              </label>
+
               <p className="text-xs text-stone-400 mt-3">
-                More payment options (card, eSewa) coming soon.
+                More payment options (card) coming soon.
               </p>
             </div>
           </div>
