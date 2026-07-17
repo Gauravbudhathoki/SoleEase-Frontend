@@ -123,35 +123,35 @@ export default function CheckoutPage() {
                   placeholder="Street address"
                   value={street}
                   onChange={(e) => setStreet(e.target.value)}
-                  className="sm:col-span-2 border border-stone-300 rounded-md px-3 py-2.5 text-sm focus:outline-none focus:border-stone-900"
+                  className="sm:col-span-2 border border-stone-300 rounded-md px-3 py-2.5 text-sm text-stone-900 placeholder-stone-400 focus:outline-none focus:border-stone-900"
                 />
                 <input
                   required
                   placeholder="City"
                   value={city}
                   onChange={(e) => setCity(e.target.value)}
-                  className="border border-stone-300 rounded-md px-3 py-2.5 text-sm focus:outline-none focus:border-stone-900"
+                  className="border border-stone-300 rounded-md px-3 py-2.5 text-sm text-stone-900 placeholder-stone-400 focus:outline-none focus:border-stone-900"
                 />
                 <input
                   required
                   placeholder="State / Province"
                   value={state}
                   onChange={(e) => setState(e.target.value)}
-                  className="border border-stone-300 rounded-md px-3 py-2.5 text-sm focus:outline-none focus:border-stone-900"
+                  className="border border-stone-300 rounded-md px-3 py-2.5 text-sm text-stone-900 placeholder-stone-400 focus:outline-none focus:border-stone-900"
                 />
                 <input
                   required
                   placeholder="Postal Code"
                   value={postalCode}
                   onChange={(e) => setPostalCode(e.target.value)}
-                  className="border border-stone-300 rounded-md px-3 py-2.5 text-sm focus:outline-none focus:border-stone-900"
+                  className="border border-stone-300 rounded-md px-3 py-2.5 text-sm text-stone-900 placeholder-stone-400 focus:outline-none focus:border-stone-900"
                 />
                 <input
                   required
                   placeholder="Country"
                   value={country}
                   onChange={(e) => setCountry(e.target.value)}
-                  className="border border-stone-300 rounded-md px-3 py-2.5 text-sm focus:outline-none focus:border-stone-900"
+                  className="border border-stone-300 rounded-md px-3 py-2.5 text-sm text-stone-900 placeholder-stone-400 focus:outline-none focus:border-stone-900"
                 />
               </div>
             </div>
@@ -169,7 +169,7 @@ export default function CheckoutPage() {
                     required
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
-                    className="w-full border border-stone-300 rounded-md px-3 py-2.5 text-sm focus:outline-none focus:border-stone-900"
+                    className="w-full border border-stone-300 rounded-md px-3 py-2.5 text-sm text-stone-900 placeholder-stone-400 focus:outline-none focus:border-stone-900"
                   />
                 </div>
                 <div>
@@ -179,7 +179,7 @@ export default function CheckoutPage() {
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full border border-stone-300 rounded-md px-3 py-2.5 text-sm focus:outline-none focus:border-stone-900"
+                    className="w-full border border-stone-300 rounded-md px-3 py-2.5 text-sm text-stone-900 placeholder-stone-400 focus:outline-none focus:border-stone-900"
                   />
                 </div>
                 <div className="sm:col-span-2">
@@ -189,7 +189,7 @@ export default function CheckoutPage() {
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     placeholder="98XXXXXXXX"
-                    className="w-full border border-stone-300 rounded-md px-3 py-2.5 text-sm focus:outline-none focus:border-stone-900"
+                    className="w-full border border-stone-300 rounded-md px-3 py-2.5 text-sm text-stone-900 placeholder-stone-400 focus:outline-none focus:border-stone-900"
                   />
                 </div>
               </div>
