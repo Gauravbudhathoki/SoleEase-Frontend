@@ -54,11 +54,13 @@ export const api = {
   put: <T>(endpoint: string, body: unknown) =>
     request<T>(endpoint, { method: 'PUT', body: JSON.stringify(body) }),
 
-  delete: <T>(endpoint: string, body?: unknown) =>
-    request<T>(endpoint, {
-      method: 'DELETE',
-      ...(body && { body: JSON.stringify(body) }),
-    }),
+  delete: <T>(endpoint: string, body?: unknown) => {
+    const options: RequestInit = { method: 'DELETE' };
+    if (body !== undefined) {
+      options.body = JSON.stringify(body);
+    }
+    return request<T>(endpoint, options);
+  },
 };
 
 export { ApiClientError };
