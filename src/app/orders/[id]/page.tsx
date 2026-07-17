@@ -7,6 +7,7 @@ import { getOrderById } from '@/lib/orders';
 import { Order } from '@/types';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { formatPrice } from '@/lib/format';
 
 export default function OrderConfirmationPage() {
   const params = useParams();
@@ -71,7 +72,7 @@ export default function OrderConfirmationPage() {
                   {item.name} × {item.quantity} (Size {item.size}, {item.color})
                 </span>
                 <span className="font-medium text-stone-900">
-                  ${(item.price * item.quantity).toFixed(2)}
+                  {formatPrice(item.price * item.quantity)}
                 </span>
               </div>
             ))}
@@ -80,7 +81,7 @@ export default function OrderConfirmationPage() {
           <div className="flex justify-between items-center mt-4 pt-4 border-t border-stone-200">
             <span className="font-semibold text-stone-900">Total Paid</span>
             <span className="text-xl font-bold text-stone-900">
-              ${order.totalPrice.toFixed(2)}
+              {formatPrice(order.totalPrice)}
             </span>
           </div>
 

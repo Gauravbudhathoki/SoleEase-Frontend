@@ -28,7 +28,7 @@ export default function WomenPage() {
   const [selectedSize, setSelectedSize] = useState<number | null>(null);
   const [selectedColor, setSelectedColor] = useState<string | null>(null);
   const [minPrice, setMinPrice] = useState(0);
-  const [maxPrice, setMaxPrice] = useState(500);
+  const [maxPrice, setMaxPrice] = useState(50000);
   const [sortBy, setSortBy] = useState<'newest' | 'price-low' | 'price-high'>('newest');
   const [page, setPage] = useState(1);
   const perPage = 8;
@@ -75,7 +75,7 @@ export default function WomenPage() {
     setSelectedSize(null);
     setSelectedColor(null);
     setMinPrice(0);
-    setMaxPrice(500);
+    setMaxPrice(50000);
     setPage(1);
   };
 
